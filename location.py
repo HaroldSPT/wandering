@@ -13,4 +13,4 @@ class Location:
         self.wandering_location[wandering] = new_location
 
     def get_location(self, wandering):
-            return self.wandering_location[wandering]
+        return self.wandering_location[wandering]
