@@ -12,7 +12,7 @@ class Wandering:
         return (self.x, self.y)
 
     def distance_origin(self):
-        return (self.x**2, self.y**2)**0.5
+        return (self.x**2 + self.y**2)**0.5
 
 class CommonWandering(Wandering):
 
@@ -20,9 +20,29 @@ class CommonWandering(Wandering):
         super().__init__(name)
 
     def walk(self):
-        dx, dy = random.choice([(-6, 2), (5,-2), (2, 3), (1, 7)])
+        dx, dy = random.choice([(0, 2), (0,-2), (2, 0), (-2, 0)])
         self.x += dx
         self.y += dy
         return [dx, dy]
 
-        
+class RightWandering(Wandering):
+
+    def __init__(self, name):
+        super().__init(name)
+
+    def walk(self):
+        dx, dy = random.choice([(8,0), (4,0), (2,0), (2,0)])
+        self.x += dx
+        self.y += dy
+        return [dx, dy]
+
+class LeftWandering(Wandering):
+
+    def __init__(self, name):
+        super().__init(name)
+
+    def walk(self):
+        dx, dy = random.choice([(-8,0), (-4,0), (-2,0), (-2,0)])
+        self.x += dx
+        self.y += dy
+        return [dx, dy]
